@@ -5,6 +5,9 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 import org.egov.tracer.config.TracerConfiguration;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -16,6 +19,7 @@ import org.springframework.context.annotation.Import;
 import java.util.TimeZone;
 
 @SpringBootApplication
+@EnableSwagger2
 @Import({ TracerConfiguration.class })
 public class Main {
 
