@@ -84,12 +84,12 @@ public class TradeLicenseService {
      * @return The list of created traddeLicense
      */
     public List<TradeLicense> create(TradeLicenseRequest tradeLicenseRequest){
-        /*Object mdmsData = util.mDMSCall(tradeLicenseRequest);
+       Object mdmsData = util.mDMSCall(tradeLicenseRequest);
         actionValidator.validateCreateRequest(tradeLicenseRequest);
         enrichmentService.enrichTLCreateRequest(tradeLicenseRequest,mdmsData);
         tlValidator.validateCreate(tradeLicenseRequest,mdmsData);
         userService.createUser(tradeLicenseRequest);
-        calculationService.addCalculation(tradeLicenseRequest);*/
+        calculationService.addCalculation(tradeLicenseRequest);
 		
         /*
 		 * call workflow service if it's enable else uses internal workflow process
@@ -110,7 +110,7 @@ public class TradeLicenseService {
      */
     public List<TradeLicense> search(TradeLicenseSearchCriteria criteria, RequestInfo requestInfo){
         List<TradeLicense> licenses;
-        tlValidator.validateSearch(requestInfo,criteria);
+       // tlValidator.validateSearch(requestInfo,criteria);
         enrichmentService.enrichSearchCriteriaWithAccountId(requestInfo,criteria);
          if(criteria.getMobileNumber()!=null){
              licenses = getLicensesFromMobileNumber(criteria,requestInfo);
