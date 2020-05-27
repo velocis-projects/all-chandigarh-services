@@ -50,11 +50,14 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.Optional;
 
 /**
  * Fetches data from MDMS service
  */
+@Slf4j
 @Repository
 public class MdmsRepository {
 
@@ -90,7 +93,8 @@ public class MdmsRepository {
 		moduleDetails = new ModuleDetails[1];
 		String filter = null;
         if (hierarchyTypeCode != null && !hierarchyTypeCode.isEmpty()) {
-			filter = "[?(@." + "hierarchyType.code" + " in [" + hierarchyTypeCode.toUpperCase() + "])]";
+		//	filter = "[?(@." + "hierarchyType.code" + " in [" + hierarchyTypeCode.toUpperCase() + "])]";
+		//	filter = "[?(@.active==true && @.module=='egov-location')]";
 		}
 		masterDetails[0] = MasterDetails.builder().name(masterName)
 				.filter(filter).build();
@@ -101,6 +105,9 @@ public class MdmsRepository {
 				.requestInfo(requestInfo).build();
 		try{
 		response = restTemplate.postForObject(mdmsBySearchCriteriaUrl, request, MdmsResponse.class);
+		
+		log.info("Boundary Data _-------------->"+response);
+		
 		}catch(Exception e){
 			System.out.println("Invalid TenantId" + e.getMessage());
 		}

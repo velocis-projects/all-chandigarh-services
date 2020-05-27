@@ -26,6 +26,7 @@ public class PersistService {
 	@Transactional
 	public void persist(String topic, String json) {
 
+		
 		Map<String, List<Mapping>> map = topicMap.getTopicMap();
 
 		for (Mapping mapping : map.get(topic)) {

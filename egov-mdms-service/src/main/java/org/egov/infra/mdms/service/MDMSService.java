@@ -104,6 +104,7 @@ public class MDMSService {
 		
 		Map<String, Map<String, Object>> masterConfigMap = MDMSApplicationRunnerImpl.getMasterConfigMap();
 
+		
 		Map<String, Object> moduleData = masterConfigMap.get(moduleName);
 		log.info(" The Module Config map : {}",moduleData);
 		Boolean isStateLevel = false;

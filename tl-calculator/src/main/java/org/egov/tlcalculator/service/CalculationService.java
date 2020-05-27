@@ -66,7 +66,7 @@ public class CalculationService {
        Object mdmsData = mdmsService.mDMSCall(calculationReq.getRequestInfo(),tenantId);
        List<Calculation> calculations = getCalculation(calculationReq.getRequestInfo(),
                calculationReq.getCalulationCriteria(),mdmsData);
-       demandService.generateDemand(calculationReq.getRequestInfo(),calculations,mdmsData);
+       //demandService.generateDemand(calculationReq.getRequestInfo(),calculations,mdmsData);
        CalculationRes calculationRes = CalculationRes.builder().calculations(calculations).build();
        producer.push(config.getSaveTopic(),calculationRes);
        return calculations;
@@ -256,9 +256,9 @@ public class CalculationService {
              if(billingSlabs.get(0).getType().equals(BillingSlab.TypeEnum.FLAT))
                  tradeUnitFees.add(billingSlabs.get(0).getRate());
         //         tradeUnitTotalFee = tradeUnitTotalFee.add(billingSlabs.get(0).getRate());
-
+             
              if(billingSlabs.get(0).getType().equals(BillingSlab.TypeEnum.RATE)){
-                 BigDecimal uomVal = new BigDecimal(tradeUnit.getUomValue());
+                 BigDecimal uomVal = new BigDecimal(4);
                  tradeUnitFees.add(billingSlabs.get(0).getRate().multiply(uomVal));
                  //tradeUnitTotalFee = tradeUnitTotalFee.add(billingSlabs.get(0).getRate().multiply(uomVal));
              }

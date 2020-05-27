@@ -51,21 +51,33 @@ public class ResponseInfoFactory {
 	public ResponseInfo createResponseInfoFromRequestInfo(final RequestInfo requestInfo, final Boolean success) {
 		final String apiId = requestInfo != null ? "org.egov.boundary" : "";
 		final String ver = requestInfo != null ? requestInfo.getVer() : "";
-		final String ts = requestInfo != null && requestInfo.getTs()!=null ? requestInfo.getTs().toString() : "";
+		//final String ts = requestInfo != null && requestInfo.getTs()!=null ? requestInfo.getTs().toString() : "";
+		 Long ts = null;
+		  if (requestInfo != null)
+	            ts = requestInfo.getTs();
+		
 		final String resMsgId = "uief87324"; // FIXME : Hard-coded
 		final String msgId = requestInfo != null ? requestInfo.getMsgId() : "";
 		final String responseStatus = success ? "successful" : "failed";
-		return new ResponseInfo(apiId, ver, ts, resMsgId, msgId, responseStatus);
+		//return new ResponseInfo(apiId, ver, ts, resMsgId, msgId, responseStatus);
+		  return ResponseInfo.builder().apiId(apiId).ver(ver).ts(ts).resMsgId(resMsgId).msgId(msgId).resMsgId(resMsgId)
+	                .status(responseStatus).build();
 	}
 
     public static ResponseInfo createResponseFromRequest(final RequestInfo requestInfo, final Boolean success) {
         final String apiId = requestInfo != null ? "org.egov.boundary" : "";
         final String ver = requestInfo != null ? requestInfo.getVer() : "";
-        final String ts = requestInfo != null && requestInfo.getTs() != null ? requestInfo.getTs().toString() : "";
+        Long ts = null;
+		  if (requestInfo != null)
+	            ts = requestInfo.getTs();
+        //  final String ts = requestInfo != null && requestInfo.getTs() != null ? requestInfo.getTs().toString() : "";
         final String resMsgId = "uief87324"; // FIXME : Hard-coded
         final String msgId = requestInfo != null ? requestInfo.getMsgId() : "";
         final String responseStatus = success ? "successful" : "failed";
-        return new ResponseInfo(apiId, ver, ts, resMsgId, msgId, responseStatus);
+        //return new ResponseInfo(apiId, ver, ts, resMsgId, msgId, responseStatus);
+        
+        return ResponseInfo.builder().apiId(apiId).ver(ver).ts(ts).resMsgId(resMsgId).msgId(msgId).resMsgId(resMsgId)
+                .status(responseStatus).build();
     }
 
 }

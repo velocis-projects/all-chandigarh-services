@@ -87,6 +87,6 @@ public class EgovPersistApplication {
 
         topicMap.setTopicMap(mappingsMap);
 
-        return topicMap;
+		return topicMap;
     }
 }
