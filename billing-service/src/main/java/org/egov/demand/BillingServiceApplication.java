@@ -42,6 +42,9 @@ package org.egov.demand;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 import org.egov.tracer.config.TracerConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -50,6 +53,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Primary;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 
+@EnableSwagger2
 @SpringBootApplication
 @Import({ TracerConfiguration.class })
 public class BillingServiceApplication {

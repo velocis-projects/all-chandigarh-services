@@ -76,7 +76,8 @@ public class BillingServiceRepository {
         try {
             BillResponse response = restTemplate.postForObject(uri, wrapper, BillResponse.class);
             return response.getBill();
-        } catch (HttpClientErrorException e) {
+        } 
+        catch (HttpClientErrorException e) {
             log.error("Unable to fetch bill for Bill ID: {} in tenant {}", billId, tenantId, e);
             throw new ServiceCallException(e.getResponseBodyAsString());
         } catch (Exception e) {

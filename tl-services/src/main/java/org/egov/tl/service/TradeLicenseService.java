@@ -192,9 +192,9 @@ public class TradeLicenseService {
         List<TradeLicense> searchResult = getLicensesWithOwnerInfo(tradeLicenseRequest);
         actionValidator.validateUpdateRequest(tradeLicenseRequest,businessService);
         enrichmentService.enrichTLUpdateRequest(tradeLicenseRequest,businessService);
-        tlValidator.validateUpdate(tradeLicenseRequest,searchResult,mdmsData);
-        Map<String,Difference> diffMap = diffService.getDifference(tradeLicenseRequest,searchResult);
-        Map<String,Boolean> idToIsStateUpdatableMap = util.getIdToIsStateUpdatableMap(businessService,searchResult);
+       // tlValidator.validateUpdate(tradeLicenseRequest,searchResult,mdmsData);
+       // Map<String,Difference> diffMap = diffService.getDifference(tradeLicenseRequest,searchResult);
+       // Map<String,Boolean> idToIsStateUpdatableMap = util.getIdToIsStateUpdatableMap(businessService,searchResult);
 
         /*
 	 * call workflow service if it's enable else uses internal workflow process
@@ -207,8 +207,8 @@ public class TradeLicenseService {
 		enrichmentService.postStatusEnrichment(tradeLicenseRequest);
         userService.createUser(tradeLicenseRequest);
         calculationService.addCalculation(tradeLicenseRequest);
-        editNotificationService.sendEditNotification(tradeLicenseRequest,diffMap);
-        repository.update(tradeLicenseRequest,idToIsStateUpdatableMap);
+        //editNotificationService.sendEditNotification(tradeLicenseRequest,diffMap);
+      //  repository.update(tradeLicenseRequest,idToIsStateUpdatableMap);
         return tradeLicenseRequest.getLicenses();
     }
 

@@ -84,10 +84,14 @@ public class MdmsRepository {
         mc.setTenantId(tenantId);
         mc.setModuleDetails(moduleDetail);
 
+        log.info("mc------------->"+mc.toString());
+        
         MdmsCriteriaReq mcq = new MdmsCriteriaReq();
         mcq.setRequestInfo(requestInfo);
         mcq.setMdmsCriteria(mc);
 
+        log.info("Mdms Request---------->"+url);
+        
         @SuppressWarnings("unchecked")
         Map<String, Map<String, List>> response = (Map<String, Map<String, List>>) restTemplate.postForObject(url, mcq,
                 Map.class).get("MdmsRes");

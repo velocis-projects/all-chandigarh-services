@@ -70,7 +70,7 @@ public class GenerateBillCriteria {
 	
 	private String businessService;
 	
-	@Email
+	/*@Email*/
 	private String email;
 	
 	private String mobileNumber;
