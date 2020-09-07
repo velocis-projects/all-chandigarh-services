@@ -40,6 +40,10 @@
 
 package org.egov.commons.util;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -59,6 +63,12 @@ public class ApplicationConstants {
 	public static final String MSG_CALENDARYEAR_EXISTS = "calendar.year.name";
 	public static final String MSG_CALENDARYEAR_NAME_START_END_DATE_ACTIVE_MANDATORY = "calendar.name.startdate.enddate.active.tenantid.mandatory";
 
+	
+	public static final String MODULE_NAME = "BillingService";
+	/*public static final List<String> MDMS_MASTER_NAMES = Collections
+			.unmodifiableList(Arrays.asList(TAXHEAD_MASTERNAME, TAXPERIOD_MASTERNAME, BUSINESSSERVICE_MASTERNAME));
+	*/
+	
 	@Autowired
 	private Environment environment;
 

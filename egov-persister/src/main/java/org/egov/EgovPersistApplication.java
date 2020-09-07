@@ -86,7 +86,7 @@ public class EgovPersistApplication {
             log.info("====================== CONFIGS LOADED SUCCESSFULLY! ====================== ");
 
         topicMap.setTopicMap(mappingsMap);
-
+        log.info("============================================================="+topicMap);
 		return topicMap;
     }
 }

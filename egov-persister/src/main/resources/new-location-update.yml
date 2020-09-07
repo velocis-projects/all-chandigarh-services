@@ -1,0 +1,50 @@
+serviceMaps:
+ serviceName: bookings
+ mappings:
+ - version: 1.0
+   name: bookings
+   description: Persists the new location details into db
+   fromTopic: update-new-location-details
+   isTransaction: true
+   queryMaps:
+       
+       - query: UPDATE public.tt_osujm_new_location SET "action"=?, applicant_address=?, applicant_name=?, application_status=?, area_requirement=?, business_service=?, contact=?, date_created=?::date, id_proof=?, landmark=?, locality_address=?, "location"=?, mail_address=?, sector=?, tenant_id=?, uuid=?, remarks=? WHERE application_number=?;
+         basePath: NewLocationDetails.*
+         jsonMaps:
+
+             - jsonPath: $.NewLocationDetails.*.action
+             
+             - jsonPath: $.NewLocationDetails.*.applicantAddress
+             
+             - jsonPath: $.NewLocationDetails.*.applicantName
+             
+             - jsonPath: $.NewLocationDetails.*.applicationStatus
+             
+             - jsonPath: $.NewLocationDetails.*.areaRequirement
+             
+             - jsonPath: $.NewLocationDetails.*.businessService
+             
+             - jsonPath: $.NewLocationDetails.*.contact
+             
+             - jsonPath: $.NewLocationDetails.*.dateCreated
+             
+             - jsonPath: $.NewLocationDetails.*.idProof
+             
+             - jsonPath: $.NewLocationDetails.*.landmark
+             
+             - jsonPath: $.NewLocationDetails.*.localityAddress
+             
+             - jsonPath: $.NewLocationDetails.*.location
+             
+             - jsonPath: $.NewLocationDetails.*.mailAddress
+             
+             - jsonPath: $.NewLocationDetails.*.sector
+             
+             - jsonPath: $.NewLocationDetails.*.tenantId
+             
+             - jsonPath: $.NewLocationDetails.*.uuid
+             
+             - jsonPath: $.NewLocationDetails.*.remarks
+             
+             - jsonPath: $.NewLocationDetails.*.applicationNumber
+             
